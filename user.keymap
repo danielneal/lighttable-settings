@@ -1,0 +1,87 @@
+;; User keymap
+;; -----------------------------
+;; Keymaps are stored as a set of diffs that are merged together together
+;; to create the final set of keys. You can modify these diffs to either add
+;; or subtract bindings.
+;;
+;; Like behaviors, keys are bound by tag. When objects with those tags are active
+;; the key bindings are live. Keys can be bound to any number of Light Table commands,
+;; allowing you the flexibility to execute multiple operations together. To see a list
+;; of all the commands you can execute, start typing a word related to the thing you
+;; want to do in between the square brackets (e.g. type "editor").
+
+{:+ {:app {"pmeta-shift-n" [:tabs.prev]
+           "pmeta-shift-p" [:tabs.next]
+           "pmeta-shift--" [:editor.undo]
+           "pmeta--" [:editor.redo]
+           "ctrl-x ctrl-f" [:open-file]}
+     :editor.keys.normal {;; Tab management
+                          "pmeta-x k" [:tabs.close]
+                          "pmeta-x b" [:new-file]
+
+                          ;; Loading and saving
+                          "pmeta-x pmeta-s" [:save]
+                          "pmeta-x pmeta-s" [:save-all]
+
+                          ;; Search
+                          "pmeta-s" [:find.show]
+                          "pmeta-g" [:find.clear :find.hide]
+
+                          ;; Movement commands
+                          "pmeta-p" [:editor.line-up]
+                          "pmeta-," [:editor.doc-start]
+                          "pmeta-." [:editor.doc-end]
+                          "pmeta-n" [:editor.line-down]
+                          "pmeta-f" [:editor.char-right]
+                          "pmeta-b" [:editor.char-left]
+                          "pmeta-d" [:editor.delete-char-right]
+                          "pmeta-a" [:editor.line-start]
+                          "pmeta-e" [:editor.line-end]
+                          "pmeta-b" [:editor.char-left]
+
+                          ;; Cutting and pasting
+                          "pmeta-y" [:editor.paste]
+                          "pmeta-k" [:editor.kill-line]
+                          "pmeta-c c" [:editor.copy]
+                          "pmeta-c k" [:editor.cut]
+
+                          ;; Watches and evaluation
+                          "pmeta-x w" [:editor.watch.watch-selection]
+                          "pmeta-x q" [:editor.watch.unwatch]
+                          "pmeta-x pmeta-e" [:eval-editor-form]
+                          "pmeta-c pmeta-k" [:eval-editor]
+
+                          ;; Indentation
+                          "tab" [:smart-indent-selection]
+
+                          ;; documentation
+                          "pmeta-c d" [:editor.doc.toggle]
+                          "pmeta-c pmeta-c" [:auto-complete]
+
+                          ;; paredit
+                          "pmeta-shift-right" [:paredit.grow.right]
+                          "pmeta-shift-left" [:paredit.shrink.right]
+                          "pmeta-left" [:paredit.grow.left]
+                          "pmeta-right" [:paredit.shrink.left]
+                          "pmeta-=" [:paredit.select.parent]
+                          }
+     :find-bar {"pmeta-s" [:find.next]
+                "pmeta-g" [:find.hide]
+                "enter" [:find.clear :find.hide]
+                "pmeta-n" [:find.next]
+                "pmeta-p" [:find.prev]}
+     :sidebar.command {"f" [side]}
+     :find-bar.replace {"pmeta-enter" [:find.replace-all]
+                        "pmeta-g" [:find.hide]
+                        "pmeta-s" [:find.next]
+                        "pmeta-n" [:find.next]
+                        "pmeta-p" [:find.prev]
+                        "esc" [:find.clear :find.hide]
+                        "enter" [:find.replace]}
+     }
+ :- {:app {"pmeta-w" []
+           "pmeta-n" [:new-file]}
+     :find-bar {"return" []
+                "pmeta-n" []}
+     :editor.keys.normal {"pmeta-n" []}}}
+
