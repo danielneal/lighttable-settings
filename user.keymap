@@ -11,10 +11,15 @@
 ;; want to do in between the square brackets (e.g. type "editor").
 
 {:+ {:app {"pmeta--" [:editor.undo]
-           "pmeta-shift--" [:editor.redo]}
+           "pmeta-shift--" [:editor.redo]
+           "pmeta-i" [:dev-inspector]}
 
      :editor {"alt-w" [:editor.watch.watch-selection]
               "alt-shift-w" [:editor.watch.unwatch]
+
+              ;; jumping around
+              "alt-." [:editor.jump-to-definition-at-cursor]
+              "alt-," [:editor.unjump]
 
               ;; indentation
               "tab" [:smart-indent-selection]
@@ -23,7 +28,7 @@
               "pmeta-c pmeta-e" [:eval-editor-form]
               "pmeta-c pmeta-k" [:eval-editor]
 
-              ;; load and save
+              ;; loading and saving
               "pmeta-x s" [:save-all]
               "pmeta-x pmeta-s" [:save]
 
@@ -41,7 +46,7 @@
               "pmeta-f" [:editor.char-right]
 
               ;; clipboard-y stuff
-              "pmeta-k" [:editor.kill-line :editor.kill-line]
+              "pmeta-k" [:editor.kill-line]
               "pmeta-d" [:editor.delete-char-right]
 
               ;; paredit stuff
@@ -51,10 +56,14 @@
               "pmeta-right" [:paredit.shrink.left]
               "pmeta-left" [:paredit.grow.left]}
 
+     :editor.keys.normal
+     {"tab" [:smart-indent-selection]}
+
      :find-bar {"pmeta-s" [:find.next]
                 "pmeta-n" [:find.next]
                 "pmeta-p" [:find.prev]
-                "pmeta-r" [:find.prev]}}
+                "pmeta-r" [:find.prev]
+                "pmeta-g" [:find.clear :find.hide]}}
 
- :- {:app ["pmeta-n"]
+ :- {:app ["pmeta-n" "pmeta-w"]
      :editor.keys.normal ["pmeta-f"]}}

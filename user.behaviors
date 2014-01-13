@@ -16,17 +16,9 @@
 
      ;; The editor tag is applied to all editors
      :editor [:lt.objs.editor/no-wrap
-<<<<<<< HEAD
               (:lt.objs.style/set-theme "default")
-              :lt.plugins.auto-complete/auto-show-on-input
-              ]
-
-     ;; Here we can add behaviors to just clojure editors
-=======
-             (:lt.objs.style/font-settings "" 10 "")
-              (:lt.objs.style/set-theme  "default")]
-     ;; Here we can add behaviors to just  editors
->>>>>>> 1a6c7fd970f589771f1a96ec871e4a22e220693e
+              (:lt.objs.style/font-settings "" "8")
+              :lt.plugins.auto-complete/auto-show-on-input]
      :editor.clojure [(:lt.objs.langs.clj/print-length 1000)]}
 
  ;; You can use the subtract key to remove behavior that may get added by
