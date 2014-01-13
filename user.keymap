@@ -10,8 +10,8 @@
 ;; of all the commands you can execute, start typing a word related to the thing you
 ;; want to do in between the square brackets (e.g. type "editor").
 
-{:+ {:app {"ctrl--" [:editor.undo]
-           "ctrl-shift--" [:editor.redo]}
+{:+ {:app {"pmeta--" [:editor.undo]
+           "pmeta-shift--" [:editor.redo]}
 
      :editor {"alt-w" [:editor.watch.watch-selection]
               "alt-shift-w" [:editor.watch.unwatch]
@@ -20,41 +20,41 @@
               "tab" [:smart-indent-selection]
 
               ;; eval
-              "ctrl-c ctrl-e" [:eval-editor-form]
-              "ctrl-c ctrl-k" [:eval-editor]
+              "pmeta-c pmeta-e" [:eval-editor-form]
+              "pmeta-c pmeta-k" [:eval-editor]
 
               ;; load and save
-              "ctrl-x s" [:save-all]
-              "ctrl-x ctrl-s" [:save]
+              "pmeta-x s" [:save-all]
+              "pmeta-x pmeta-s" [:save]
 
               ;; find
-              "ctrl-s" [:find.show]
+              "pmeta-s" [:find.show]
 
               ;; movement
-              "ctrl-a" [:editor.line-start]
-              "ctrl-e" [:editor.line-end]
-              "ctrl-n" [:editor.line-down]
-              "ctrl-p" [:editor.line-up]
-              "ctrl-." [:editor.doc-end]
-              "ctrl-," [:editor.doc-start]
-              "ctrl-b" [:editor.char-left]
-              "ctrl-f" [:editor.char-right]
+              "pmeta-a" [:editor.line-start]
+              "pmeta-e" [:editor.line-end]
+              "pmeta-n" [:editor.line-down]
+              "pmeta-p" [:editor.line-up]
+              "pmeta-." [:editor.doc-end]
+              "pmeta-," [:editor.doc-start]
+              "pmeta-b" [:editor.char-left]
+              "pmeta-f" [:editor.char-right]
 
               ;; clipboard-y stuff
-              "ctrl-k" [:editor.kill-line :editor.kill-line]
-              "ctrl-d" [:editor.delete-char-right]
+              "pmeta-k" [:editor.kill-line :editor.kill-line]
+              "pmeta-d" [:editor.delete-char-right]
 
               ;; paredit stuff
-              "ctrl-=" [:paredit.select.parent]
-              "ctrl-shift-right" [:paredit.grow.right]
-              "ctrl-shift-left" [:paredit.shrink.right]
-              "ctrl-right" [:paredit.shrink.left]
-              "ctrl-left" [:paredit.grow.left]}
+              "pmeta-=" [:paredit.select.parent]
+              "pmeta-shift-right" [:paredit.grow.right]
+              "pmeta-shift-left" [:paredit.shrink.right]
+              "pmeta-right" [:paredit.shrink.left]
+              "pmeta-left" [:paredit.grow.left]}
 
-     :find-bar {"ctrl-s" [:find.next]
-                "ctrl-n" [:find.next]
-                "ctrl-p" [:find.prev]
-                "ctrl-r" [:find.prev]}}
+     :find-bar {"pmeta-s" [:find.next]
+                "pmeta-n" [:find.next]
+                "pmeta-p" [:find.prev]
+                "pmeta-r" [:find.prev]}}
 
- :- {:app ["ctrl-n"]
-     :editor.keys.normal ["ctrl-f"]}}
+ :- {:app ["pmeta-n"]
+     :editor.keys.normal ["pmeta-f"]}}
